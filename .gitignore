@@ -1,4 +1,4 @@
 cache/
 node_modules/
-videos-para-upload.txt
 *.zip
+.videos-enviados.txt

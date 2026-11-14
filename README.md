@@ -57,9 +57,18 @@ Os cerca de 1.100 vídeos não cabem no Pages, que aceita no máximo 25 MB por a
 os busca em `https://videos.conhecimento.click/attachments/...`. Esse endereço é configurado em
 `VIDEO_BASE`.
 
-- **Opção A, Cloudflare R2** (sem custo de tráfego): crie um bucket, conecte a ele o domínio
-  `videos.conhecimento.click` e envie a pasta `cache/assets/attachments` mantendo a estrutura de
-  pastas. A lista exata de arquivos está em `videos-para-upload.txt`. Dá para enviar com `rclone copy`.
+- **Opção A, Cloudflare R2** (sem custo de tráfego), no seu computador:
+
+  ```bash
+  npx wrangler login
+  npx wrangler r2 bucket create conhecimento-videos
+  python3 scripts/enviar_videos.py conhecimento-videos
+  ```
+
+  No painel R2 → bucket → *Settings* → *Custom Domains*, conecte `videos.conhecimento.click`.
+  O script baixa cada arquivo do Confluence (via `~/.netrc`) e envia ao bucket, um por vez, sem precisar
+  de 16 GB livres. Se for interrompido, é só rodar de novo: ele continua de onde parou.
+  A lista de arquivos está em `scripts/videos.txt`.
 - **Opção B, servidor próprio** (VPS com nginx): gere o site com os vídeos incluídos e sirva tudo
   do mesmo lugar:
 
