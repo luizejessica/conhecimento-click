@@ -1,0 +1,328 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Relatorio Personalizado Padrão" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<template><![CDATA["https://web.qualityautomacao.com.br/ARQUIVO/JASPER_STYLE"]]></template>
+	<style name="Zebrado" style="Zebrado Impar">
+		<conditionalStyle backcolor="#E2ECF3">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<dataset name="Dataset" uuid="859383b4-7a79-4e20-b92c-f7c5e09c83bb">
+		<query language="sql"><![CDATA[]]></query>
+		<field name="filial" class="java.lang.String"/>
+		<field name="produto" class="java.lang.String"/>
+		<field name="data_hora_faturamento" class="java.sql.Timestamp"/>
+		<field name="quantidade" class="java.math.BigDecimal"/>
+		<field name="preco_unitario" class="java.math.BigDecimal"/>
+		<field name="desconto" class="java.math.BigDecimal"/>
+		<field name="valor_pago" class="java.math.BigDecimal"/>
+		<field name="valor_nf" class="java.math.BigDecimal"/>
+		<field name="funcionario" class="java.lang.String"/>
+		<sortField name="filial"/>
+		<sortField name="produto"/>
+		<variable name="preco_unitario_filial" resetType="Group" calculation="Sum" resetGroup="Group_Filial" class="java.math.BigDecimal">
+			<expression><![CDATA[$F{preco_unitario}]]></expression>
+		</variable>
+		<variable name="quantidade_filial" resetType="Group" calculation="Sum" resetGroup="Group_Filial" class="java.math.BigDecimal">
+			<expression><![CDATA[$F{quantidade}]]></expression>
+		</variable>
+		<variable name="desconto_filial" resetType="Group" calculation="Sum" resetGroup="Group_Filial" class="java.math.BigDecimal">
+			<expression><![CDATA[$F{desconto}]]></expression>
+		</variable>
+		<variable name="valor_nf_filial" resetType="Group" calculation="Sum" resetGroup="Group_Filial" class="java.math.BigDecimal">
+			<expression><![CDATA[$F{valor_nf}]]></expression>
+		</variable>
+		<variable name="valor_pago_filial" resetType="Group" calculation="Sum" resetGroup="Group_Filial" class="java.math.BigDecimal">
+			<expression><![CDATA[$F{valor_pago}]]></expression>
+		</variable>
+		<group name="Group_Filial">
+			<expression><![CDATA[$F{filial}]]></expression>
+		</group>
+	</dataset>
+	<parameter name="USU_DS_USUARIO" class="java.lang.String"/>
+	<parameter name="UNN_DS_FANTASIA" class="java.lang.String"/>
+	<parameter name="UNN_DS_CNPJ" class="java.lang.String"/>
+	<parameter name="LOGO" class="java.io.InputStream"/>
+	<parameter name="MEMO1" class="java.lang.String" nestedType="java.lang.String"/>
+	<parameter name="MEMO2" class="java.lang.String" nestedType="java.lang.String"/>
+	<parameter name="MEMO3" class="java.lang.String" nestedType="java.lang.String"/>
+	<parameter name="DIR_RELATORIO_STYLE" class="java.io.ByteArrayInputStream"/>
+	<parameter name="DATA_SOURCE_VENDA_FIDELIDADE" class="net.sf.jasperreports.engine.data.JRMapCollectionDataSource"/>
+	<parameter name="RED_DS_REDE" class="java.lang.String"/>
+	<query language="sql"><![CDATA[]]></query>
+	<field name="VALOR1" class="java.lang.String"/>
+	<field name="VALOR2" class="java.lang.String"/>
+	<group name="Group">
+		<groupHeader>
+			<band height="78">
+				<element kind="component" uuid="1f4e7e08-2352-4448-8c7a-d6fb636c6969" x="0" y="0" width="556" height="72" style="Cabeçalho Sem Borda">
+					<component kind="table">
+						<datasetRun uuid="d54a2a7e-3946-47f2-bc80-ef90824f0079" subDataset="Dataset">
+							<dataSourceExpression><![CDATA[$P{DATA_SOURCE_VENDA_FIDELIDADE}.cloneDataSource()]]></dataSourceExpression>
+						</datasetRun>
+						<column kind="group" uuid="bea1c8f7-b66c-4d8a-a300-7463abab5fc7" width="556">
+							<groupHeader groupName="Group_Filial">
+								<cell height="18" rowSpan="1" style="Cabeçalho Sem Borda">
+									<element kind="rectangle" uuid="9035396a-64a6-4ff5-8c07-e05816912099" x="0" y="6" width="556" height="12" style="Fundo Cabeçalho">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</element>
+									<element kind="staticText" uuid="be536608-e691-476f-b38f-b9ae8d76ff6b" x="0" y="6" width="40" height="12" fontSize="6.0" style="Cabeçalho">
+										<text><![CDATA[Filial]]></text>
+									</element>
+									<element kind="textField" uuid="c0cd0db2-12be-4204-92bf-01d3122c2930" x="40" y="6" width="516" height="12" fontSize="6.0" style="Cabeçalho">
+										<expression><![CDATA[$F{filial}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+								</cell>
+							</groupHeader>
+							<groupFooter groupName="Group_Filial">
+								<cell height="18" rowSpan="1" style="Cabeçalho Sem Borda">
+									<element kind="rectangle" uuid="0e0e5db6-0842-4c12-85ef-498aa040b0e3" x="0" y="6" width="556" height="12" style="Fundo Cabeçalho">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</element>
+									<element kind="staticText" uuid="84df49e7-2430-4a30-b7aa-8f12ffb86e09" x="0" y="6" width="40" height="12" fontSize="6.0" style="Cabeçalho">
+										<text><![CDATA[Total]]></text>
+									</element>
+									<element kind="textField" uuid="0e545186-284f-4d61-b68e-79c4d0a77303" x="226" y="6" width="66" height="12" fontSize="6.0" pattern="#,##0.00;-#,##0.00" style="Cabeçalho Sem Borda">
+										<expression><![CDATA[$V{preco_unitario_filial}]]></expression>
+									</element>
+									<element kind="textField" uuid="009e7542-02bd-4dc3-bf76-133e12cdc2ff" x="292" y="6" width="66" height="12" fontSize="6.0" pattern="#,##0.00;-#,##0.00" style="Cabeçalho Sem Borda">
+										<expression><![CDATA[$V{quantidade_filial}]]></expression>
+									</element>
+									<element kind="textField" uuid="321ea294-68f0-481c-a5bc-e234636aca6e" x="358" y="6" width="66" height="12" fontSize="6.0" pattern="#,##0.00;-#,##0.00" style="Cabeçalho Sem Borda">
+										<expression><![CDATA[$V{valor_nf_filial}]]></expression>
+									</element>
+									<element kind="textField" uuid="9b7f68f7-1de9-4fa2-82ab-1e34b09e4817" x="424" y="6" width="66" height="12" fontSize="6.0" pattern="#,##0.00;-#,##0.00" style="Cabeçalho Sem Borda">
+										<expression><![CDATA[$V{desconto_filial}]]></expression>
+									</element>
+									<element kind="textField" uuid="8bc0e333-89a2-4569-a797-36a2f88e32a1" x="490" y="6" width="66" height="12" fontSize="6.0" pattern="#,##0.00;-#,##0.00" style="Cabeçalho Sem Borda">
+										<expression><![CDATA[$V{valor_pago_filial}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+								</cell>
+							</groupFooter>
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [8]"/>
+							<column kind="single" uuid="a086b72b-2e1a-4588-a2a8-35f3c6b2011e" width="40">
+								<detailCell height="12">
+									<element kind="textField" uuid="35e49c9f-08e6-46fb-b6cc-1ddc981c9d69" x="0" y="0" width="40" height="12" pattern="dd/MM/yyyy hh:mm:ss" style="Campos">
+										<expression><![CDATA[$F{data_hora_faturamento}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" rowSpan="1" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="f0ff5283-6683-4a01-a9a2-8889c63d7f6f" x="0" y="0" width="40" height="12" fontSize="6.0" style="Cabeçalho">
+											<text><![CDATA[Data/Hora]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0" rowSpan="1">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+							</column>
+							<column kind="single" uuid="f482feae-9fcd-4557-93a0-93e2131557cc" width="80">
+								<detailCell height="12">
+									<element kind="textField" uuid="1383cb14-137b-4cc3-b81a-be1b81470e4b" x="0" y="0" width="80" height="12" style="Campos">
+										<expression><![CDATA[$F{funcionario}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="adc76f66-f07d-49b1-af20-f0d01897c8cb" x="0" y="0" width="80" height="12" fontSize="6.0" style="Cabeçalho">
+											<text><![CDATA[Funcionário]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+							</column>
+							<column kind="single" uuid="99ab1bef-f7e6-4d62-bcb2-1dfe705a638a" width="106">
+								<detailCell height="12">
+									<element kind="textField" uuid="3db3884a-095c-4a55-a336-76f769a39d85" x="0" y="0" width="106" height="12" style="Campos">
+										<expression><![CDATA[$F{produto}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="5ea36db1-79db-4427-a075-a63fed8d3b59" x="0" y="0" width="106" height="12" fontSize="6.0" style="Cabeçalho">
+											<text><![CDATA[Produto]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+							</column>
+							<column kind="single" uuid="c24fcfcf-dfa0-400d-b979-b58b85b91bd3" width="66">
+								<detailCell height="12">
+									<element kind="textField" uuid="97fea87e-e585-4945-aeb1-5f52cae2c343" x="0" y="0" width="66" height="12" pattern="#,##0.00;-#,##0.00" style="Campo Direita">
+										<expression><![CDATA[$F{preco_unitario}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="6e5ed9f4-5bf9-40c1-aa40-501cdd6fb784" x="0" y="0" width="66" height="12" fontSize="5.0" style="Cabeçalho">
+											<text><![CDATA[Preço Orig. (R$)]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+							</column>
+							<column kind="single" uuid="4a859aa5-e8f3-4bb8-9d7d-5be0b2bd5793" width="66">
+								<detailCell height="12">
+									<element kind="textField" uuid="c440f48d-1ddc-4873-bf20-4cbb03089ac3" x="0" y="0" width="66" height="12" pattern="#,##0.00;-#,##0.00" style="Campo Direita">
+										<expression><![CDATA[$F{quantidade}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="ea9fa47c-f325-4489-b194-0c8b1ce92446" x="0" y="0" width="66" height="12" fontSize="6.0" style="Cabeçalho">
+											<text><![CDATA[Volume Abastecido]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+							</column>
+							<column kind="single" uuid="56555db8-11ae-4381-b7df-e2eee69f8201" width="66">
+								<detailCell height="12">
+									<element kind="textField" uuid="b93e1345-e9be-495c-bb5b-279735c06674" x="0" y="0" width="66" height="12" pattern="#,##0.00;-#,##0.00" style="Campo Direita">
+										<expression><![CDATA[$F{valor_nf}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="a8942ef9-3506-488b-a7d5-2cbeedd51215" x="0" y="0" width="66" height="12" fontSize="5.0" style="Cabeçalho">
+											<text><![CDATA[Valor Total Orig. (R$)]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+							</column>
+							<column kind="single" uuid="eb281e07-cab0-4366-99ed-75927f92830d" width="66">
+								<detailCell height="12">
+									<element kind="textField" uuid="6b5a4765-798d-4f2e-a7bc-ad44eb06d911" x="0" y="0" width="66" height="12" pattern="#,##0.00;-#,##0.00" style="Campo Direita">
+										<expression><![CDATA[$F{desconto}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="6d25541d-319a-4b7b-b10c-fec02a75a5a3" x="0" y="0" width="66" height="12" fontSize="5.0" style="Cabeçalho">
+											<text><![CDATA[Deconto Total (R$)]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
+							</column>
+							<column kind="single" uuid="08ebe98b-6028-4f97-a177-806fa1ea0436" width="66">
+								<detailCell height="12">
+									<element kind="textField" uuid="c51be123-f26e-402b-b379-852c787cea11" x="0" y="0" width="66" height="12" pattern="#,##0.00;-#,##0.00" style="Campo Direita">
+										<expression><![CDATA[$F{valor_pago}]]></expression>
+									</element>
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</detailCell>
+								<groupHeader groupName="Group_Filial">
+									<cell height="12" style="Fundo Cabeçalho">
+										<element kind="staticText" uuid="af1efb73-c4ff-4a67-abb9-e0304db8656c" x="0" y="0" width="66" height="12" fontSize="6.0" style="Cabeçalho">
+											<text><![CDATA[Valor Pago (R$)]]></text>
+										</element>
+										<property name="com.jaspersoft.studio.unit.width" value="px"/>
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupHeader>
+								<groupFooter groupName="Group_Filial">
+									<cell height="0" style="Cabeçalho Sem Borda">
+										<property name="com.jaspersoft.studio.unit.height" value="px"/>
+									</cell>
+								</groupFooter>
+								<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column8"/>
+							</column>
+						</column>
+					</component>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</element>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			</band>
+		</groupHeader>
+	</group>
+	<title height="58" splitType="Stretch">
+		<element kind="textField" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979" x="470" y="41" width="84" height="10" pattern="dd/MM/yyyy HH:mm:ss z" style="Titulo">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="image" uuid="94883631-a913-43e2-b182-ab8d77d0181e" x="1" y="0" width="50" height="50" scaleImage="FillFrame" onErrorType="Blank" usingCache="true" hImageAlign="Center" vImageAlign="Middle">
+			<expression><![CDATA[$P{LOGO}]]></expression>
+		</element>
+		<element kind="staticText" uuid="e622555d-198b-4ccd-a4a1-c59c53304058" x="60" y="0" width="286" height="17" style="Título Nome">
+			<text><![CDATA[Vendas por Fidelidade]]></text>
+		</element>
+		<element kind="textField" uuid="8d4f4ced-4bd5-42b3-bec5-349b26975abc" x="346" y="5" width="208" height="12" style="Unidade">
+			<expression><![CDATA[$P{RED_DS_REDE}]]></expression>
+		</element>
+	</title>
+	<pageFooter height="15">
+		<element kind="textField" uuid="5da7c75f-4c36-41a6-b934-108b6ed464de" x="0" y="5" width="170" height="10" style="Rodapé">
+			<expression><![CDATA["Usuário: " + $P{USU_DS_USUARIO}]]></expression>
+		</element>
+		<element kind="staticText" uuid="a72337f6-ae41-46aa-b49d-fdcfc662a991" x="222" y="5" width="110" height="10" hTextAlign="Center" style="Rodapé">
+			<text><![CDATA[Quality Automação]]></text>
+		</element>
+		<element kind="textField" uuid="439469d8-e2a4-41aa-a0b0-1d8291d597f8" x="474" y="5" width="40" height="10" hTextAlign="Right" style="Rodapé">
+			<expression><![CDATA["Página " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="acc61da9-5801-4cea-afdf-7ece3afda8c7" x="515" y="5" width="40" height="10" evaluationTime="Report" style="Rodapé">
+			<expression><![CDATA[" de " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+</jasperReport>

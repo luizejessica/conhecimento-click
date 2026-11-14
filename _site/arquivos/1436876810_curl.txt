@@ -1,0 +1,22 @@
+curl --location "http://192.0.0.1:1217/?WSDL=null"
+--header "Content-Type: application/xml"
+--data "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tem=\"http://tempuri.org/\" xmlns:int=\"http://schemas.datacontract.org/2004/07/IntegracaoSTPService\">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <tem:statusPagamento>
+      <tem:request>
+        <int:codigoEstabelecimento>6038</int:codigoEstabelecimento>
+        <int:dataFimAbastecimento>2025-12-10T11:47:00</int:dataFimAbastecimento>
+        <int:encerranteVolume>283562.54</int:encerranteVolume>
+        <int:identificacaoBico>21</int:identificacaoBico>
+        <int:identificacaoBomba>4</int:identificacaoBomba>
+        <int:identificacaoTerminal>1</int:identificacaoTerminal>
+        <int:tipoCombustivel>320102002</int:tipoCombustivel>
+        <int:validador>B910B65807DA28380691E2810C00BAD3</int:validador>
+        <int:valorAbastecimento>50</int:valorAbastecimento>
+        <int:valorLitro>6.59</int:valorLitro>
+        <int:volume>7.58</int:volume>
+      </tem:request>
+    </tem:statusPagamento>
+  </soapenv:Body>
+</soapenv:Envelope>"
