@@ -1,4 +1,5 @@
 cache/
+_site/
 node_modules/
 *.zip
-.videos-enviados.txt
+__pycache__/
